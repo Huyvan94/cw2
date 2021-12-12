@@ -1,0 +1,14 @@
+{% extends "base.html" %} 
+{% block content %}
+<h1>My Interested Movies</h1>
+{% for use in user.interested%}
+    <div class="film">
+        <p><strong>Title</strong>: {{use.title}}</p>
+        <p><strong>Length</strong>: {{use.length}}</p>
+        <p><strong>Genre</strong>: {{use.genre}}</p>
+        <button><a href = "/unInterest/{{use.id}}">No longer interested</a></button>
+    <br>
+    </div>
+        
+{% endfor %}
+{% endblock %}

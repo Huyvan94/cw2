@@ -1,0 +1,53 @@
+button{
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding:5px;
+}
+button:hover{
+    background-color: rgb(59, 25, 153)
+}
+
+a:hover{
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+#currentLocation{
+    size: 45px;
+}
+@media (min-width: 1px) {
+    #films{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 700px) {
+    #cinemas{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 1000px) {
+    #films{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+#cinemas{
+    display: grid;
+    grid-gap: 3%;
+}
+#films{
+    display: grid;
+    grid-gap: 3%;
+}
+
+.film{
+    size: 45px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+    background-color: aliceblue;
+    padding:10px;
+    margin:10px;
+}

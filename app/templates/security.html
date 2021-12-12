@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Security Setting</h1>
+    <h3>Personal Information</h3>
+    <p>Name: {{user.fname}} {{user.lanme}}</p>
+    <p>Date of birth (YYYY-mm-dd): {{user.dob}}</p>
+    <p>Gender: {{user.gender}}</p>
+    <h3>Change Password</h3>
+    <form action="" method="post" name="UpdatePassword">
+        {{ form.hidden_tag() }}
+
+        <p>Current Password</p>
+        <span class="rounded-lg">
+        {{ form.current(class_='form-control') }}
+        </span>
+        {% for error in form.current.errors %}
+        <div class="alert alert-danger w-100" role="alert">
+            [{{ error }}]
+        </div>
+        {% endfor %}<br>
+    
+        <p>New Password</p>
+        <span class="rounded-lg">
+        {{ form.new(class_='form-control') }}
+        </span>
+        {% for error in form.new.errors %}
+        <div class="alert alert-danger w-100" role="alert">
+            [{{ error }}]
+        </div>
+        {% endfor %}<br>
+
+        <p>Confirm New Password</p>
+        <span class="rounded-lg">
+        {{ form.confirm(class_='form-control') }}
+        </span>
+        {% for error in form.confirm.errors %}
+        <div class="alert alert-danger w-100" role="alert">
+            [{{ error }}]
+        </div>
+        {% endfor %}<br>
+
+        <input type="submit" class="sub" value="Update">
+    </form>
+{% endblock %}

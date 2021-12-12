@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>Leeds Cinemas & Films </h1>
+<h3>Popular Movie Theatres at Leeds</h3>
+<button onclick="getLocation()">Get your location</button>
+<p id="currentLocation"></p>  
+<div id="cinemas">
+    <div>
+        <p><strong>1.Hype Park Picture House</strong></p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2355.729538916233!2d-1.571538784193419!3d53.81209618007922!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795eb36ea31d3b%3A0x2b8f7b787dcc4b35!2sHyde%20Park%20Picture%20House!5e0!3m2!1sen!2suk!4v1639309558853!5m2!1sen!2suk" 
+        width=100% height=50% style="border:0;" title= "one" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div>
+        <p><strong>2.Cottage Road Cinema</strong></p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2354.8971012308048!2d-1.5839478841928634!3d53.82690638008256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795938586ea791%3A0x130c335090abb450!2sCottage%20Road%20Cinema!5e0!3m2!1sen!2suk!4v1639309687230!5m2!1sen!2suk" 
+        width=100% height=50% style="border:0;" title= "two" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div> 
+        <p><strong>3.Everyman Leeds</strong></p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d150821.6084609917!2d-1.6840952835937828!3d53.796826599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795c1945771713%3A0x29a321c2d8533db5!2sEveryman%20Leeds!5e0!3m2!1sen!2suk!4v1639309811193!5m2!1sen!2suk" 
+        width=100% height=50% style="border:0;" title="three"  allowfullscreen="" loading="lazy"></iframe>   
+    </div>
+</div>
+<h3>Popular films at Leeds</h3>
+<div id='films'>
+    
+    {% for film in films%}
+        <div class="film">
+            <p><strong>Title</strong>: {{film.title}}</p>
+            <p><strong>Length</strong>: {{film.length}}</p>
+            <p><strong>Genre</strong>: {{film.genre}}</p>
+            {%if film in interested%}
+                <p>Interested Film</p>
+            {% else %}
+                <button><a href = "/interest/{{film.id}}">Take an interest</a></button>
+            {% endif %}
+            <br>
+        </div>
+    {% endfor %}
+</div>
+<br>
+<br>
+
+{% endblock %}
